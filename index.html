@@ -62,7 +62,7 @@
       display: flex;
       justify-content: flex-start;
       gap: 2rem;
-      background: linear-gradient(90deg, #fff 0%, transparent 30%);
+      background: linear-gradient(90deg, #fff 0%,  #fff 30%, transparent 40%);
       padding: 0.5rem;
       position: sticky;
       top: 0;
@@ -88,10 +88,6 @@
       max-width: 100%;
       display: block;
       margin: 1rem auto;
-    }
-
-    .merch img {
-      max-width: 250px;
     }
 
     .button {
@@ -174,10 +170,19 @@
     }
 
     .header-title-mobile {
-      display: none;
       padding-top:40px;
       max-width: 500px;
       margin: 0 auto;
+    }
+
+    .mobile {
+      display: none;
+    }
+
+    .merch img {
+      position: absolute;
+      perspective: 800px;
+      max-width: 250px;
     }
   </style>
   <link rel="stylesheet" href="book.css" type="text/css" />
@@ -202,37 +207,50 @@
 
       nav {
         width: auto;
+        background: #fff;
       }
     }
 
     @media (max-width:650px) {
-      .header-title-desktop {
+      .desktop {
         display: none;
       }
 
-      .header-title-mobile {
+      .mobile {
         display: block;
+      }
+
+      .header-content {
+        height: 320px;
+      }
+
+      .book-container {
+        margin-left: -50px;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1 class="header-title-mobile">
+    <h1 class="header-title-mobile mobile">
       Culture Is Downstream of Monetary Policy
     </h1>
+    <h2 class="mobile" style="font-size: 1.25rem; font-weight: normal; margin-bottom: 1.5rem;">
+      From the meaning of life to the price of rent, it drives the incentives that shape civilization.
+    </h2>
     <div class="header-container">
       <div class="header-content">
-        <h1 class="header-title-desktop">
+        <h1 class="header-title-desktop desktop">
           Culture Is Downstream of Monetary Policy
         </h1>
-        <h2 style="font-size: 1.25rem; font-weight: normal; margin-bottom: 1.5rem;">
+        <h2 class="desktop" style="font-size: 1.25rem; font-weight: normal; margin-bottom: 1.5rem;">
           From the meaning of life to the price of rent, it drives the incentives that shape civilization.
         </h2>
-        <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;">
+        <p class="desktop" style="font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;">
           This book shows how a single, surgical fix — upgrading the settlement layer — could reverse the rot and restore belief in the future.
         </p>
-        <div style="text-align: center;">
+        <div class="desktop" style="text-align: center;">
           <a class="button on-orange" href="https://www.amazon.com/dp/B0...?" target="_blank">Coming Soon</a>
         </div>
       </div>
@@ -245,13 +263,36 @@
         </div>
       </a>
     </div>
+    <p class="mobile" style="font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;">
+      This book shows how a single, surgical fix — upgrading the settlement layer — could reverse the rot and restore belief in the future.
+    </p>
+    <div class="mobile" style="text-align: center;">
+      <a class="button on-orange" href="https://www.amazon.com/dp/B0...?" target="_blank">Coming Soon</a>
+    </div>
   </header>
 
   <nav>
-    <a href="#merch" style="display: none;">Merch</a>
+    <a href="#merch">Merch</a>
     <a href="#protocol">Protocol</a>
     <a href="#contact">Contact</a>
   </nav>
+
+  <section id="merch" class="merch info-section">
+    <div style="display: flex; gap: 100px;">
+      <a href="https://readthisbookandsavetheworld.creator-spring.com/listing/qr-ious-girl" target="_blank" style="position: relative; height: 250px; width: 250px;">
+        <img src="merch/shirt.png" style="top: -50px; left: -50px; z-index: 1;" />
+        <img src="merch/women.png" style="top: -50px; left: 50px; z-index: 2;" />
+        <img src="merch/bella.png" style="top: 0; left: 0; z-index: 3;" />
+        <img src="merch/tote.png" style="top: 50px; left: -50px; z-index: 4;" />
+        <img src="merch/sticker.png" style="top: 50px; left: 50px; z-index: 5;" />
+      </a>
+      <div>
+        <h2>QR-ious Girl Merch</h2>
+        <p>Get her on shirts, totes, and stickers.</p>
+        <a class="orange-button" href="https://readthisbookandsavetheworld.creator-spring.com/listing/qr-ious-girl" target="_blank">Shop Now</a>
+      </div>
+    </div>
+  </section>
 
   <section id="protocol" class="info-section">
     <div class="container">
@@ -265,19 +306,12 @@
     <div class="container">
       <h2>Contact</h2>
       <p>Have a question or want to collaborate?</p>
-      <p>
+      <p style="white-space: nowrap;">
         📬 <a href="mailto:readthisbookandsavetheworld@gmail.com">
           readthisbookandsavetheworld@gmail.com
         </a>
       </p>
     </div>
-  </section>
-
-  <section id="merch" class="merch" style="display: none;">
-    <h2>Dumb Ape Merch</h2>
-    <img src="/dumb-ape.svg" alt="Dumb Ape Design" />
-    <p>Get it on shirts, mugs, and more via Threadless.</p>
-    <a class="button" href="https://your-threadless-shop.com" target="_blank">Shop Now</a>
   </section>
 
   <section id="testimonials" style="display:none">
